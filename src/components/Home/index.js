@@ -9,7 +9,7 @@ import Pagination from "../Pagination"
 import { v4 }  from "uuid"
 
 class Home extends Component {
-    state = { contacts: data, errorMsg:false, searchValue: "", currentPage: 1, postsPerPage: 10, isFormOpen: false, name: '', status:'',location:"" }
+    state = { contacts: data, errorMsg:false, searchValue: "", currentPage: 1, postsPerPage: 10, isFormOpen: false, name: "", status:"",location:"" }
     
     
     triggeredFav = id => {
