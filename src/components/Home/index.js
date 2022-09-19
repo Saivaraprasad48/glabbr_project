@@ -104,10 +104,11 @@ class Home extends Component {
     render() {
         const { contacts, searchValue, currentPage, postsPerPage,isFormOpen } = this.state
         const searchedContacts = contacts.filter((each) => each.name.toLowerCase().includes(searchValue.toLowerCase()))
+        console.log(searchedContacts);
         const FavData = contacts.filter(e => (e.isFavoriate === true))
         const lastPostIndex = currentPage * postsPerPage
         const firstPostIndex = lastPostIndex - postsPerPage
-        const currentPosts = contacts.slice(firstPostIndex, lastPostIndex)
+        const currentPosts = searchedContacts.slice(firstPostIndex, lastPostIndex)
         return (
             <div className="bg-container">
                 <header className="header">
@@ -144,10 +145,10 @@ class Home extends Component {
                             <p className="contact-info-text"> Favoriate </p>
                             <p className="contact-info-text"> Delete </p>
                         </div>
-                        <ul className="contact-details">
-                            {currentPosts.map((eachItem) =>  <ContactItem key={eachItem.id} data={eachItem} triggerFav={this.triggeredFav} triggerDel={this.triggerDel} />)}
-                        </ul>
-                        <Pagination count={contacts.length} setGo={this.setGo}  postPerPage={postsPerPage} />    
+                            <ul className="contact-details">
+                                {currentPosts.map((eachItem) => <ContactItem key={eachItem.id} data={eachItem} triggerFav={this.triggeredFav} triggerDel={this.triggerDel} />)}
+                            </ul>    
+                        <Pagination count={contacts.length} setGo={this.setGo} currentPage={currentPage} postPerPage={postsPerPage} />    
                     </div>
                     
                 </main>
