@@ -140,3 +140,30 @@
     color: red;
     font-size: 12px;
 }
+@media screen and (max-width: 767px) {
+    .filter-container{
+        display: none;
+    }
+    .header-text{
+        font-size: 14px;
+    }
+    .search-container{
+        width: 100px;
+    }
+    .search-input{
+        width: 100px;
+        margin-right:10px;
+    }
+    .header{
+        width: 100%;
+    }
+    .header-actions{
+        width: 220px;
+    }
+    .favoriate-text{
+        font-size: 26px;
+    }
+    .contacts-text{
+        font-size: 26px;
+    }
+}

@@ -15,6 +15,7 @@ const ContactItem = props => {
     const { id, name, status, location, isFavoriate } = data
     const initial = name[0].toUpperCase()
     const FavIcon = isFavoriate ? <BsFillStarFill color="yellow" size={ "25px" }/> : <AiOutlineStar size={ "25px" } />
+    
     const FavClicked = () => {
         triggerFav(id)
     }
