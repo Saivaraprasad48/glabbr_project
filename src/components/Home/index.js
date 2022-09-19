@@ -49,7 +49,7 @@ class Home extends Component {
             
         }
     }
-
+  
 
     getContact = event => {
         this.setState({searchValue:event.target.value})
@@ -59,6 +59,10 @@ class Home extends Component {
         const {contacts} = this.state
         const filteredContacts = contacts.filter((e) => e.id !== id)
         this.setState({contacts:filteredContacts})
+    }
+
+    setGo = page => {
+        this.setState({ currentPage: page })
     }
 
     getCancelForm = () => {
@@ -141,9 +145,9 @@ class Home extends Component {
                             <p className="contact-info-text"> Delete </p>
                         </div>
                         <ul className="contact-details">
-                            {searchedContacts.map((eachItem) => <ContactItem key={eachItem.id} data={eachItem}  triggerFav={this.triggeredFav} triggerDel={this.triggerDel} />) }   
+                            {currentPosts.map((eachItem) =>  <ContactItem key={eachItem.id} data={eachItem} triggerFav={this.triggeredFav} triggerDel={this.triggerDel} />)}
                         </ul>
-                        <Pagination count={contacts.length} postsPerPage={postsPerPage} />    
+                        <Pagination count={contacts.length} setGo={this.setGo}  postPerPage={postsPerPage} />    
                     </div>
                     
                 </main>

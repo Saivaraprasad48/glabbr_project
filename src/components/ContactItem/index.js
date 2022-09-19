@@ -42,12 +42,9 @@ const ContactItem = props => {
                 </div>  
                 <div className="delete-icon" onClick={ DelClicked }>
                     <AiOutlineDelete size={ "25px" } />
-                </div>  
-                
-                
+                </div>
             </div> 
         </li>
-        
     )
 }
 
