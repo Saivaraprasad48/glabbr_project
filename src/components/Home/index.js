@@ -6,12 +6,12 @@ import { BiSearchAlt2 } from "react-icons/bi"
 import { IoFilterSharp } from "react-icons/io5"
 import FavoriateItem from "../FavoriateItem/index"
 import Pagination from "../Pagination"
-import { v4 }  from "uuid"
+import { v4 } from "uuid"
+
+
 
 class Home extends Component {
     state = { contacts: data, errorMsg:false, searchValue: "", currentPage: 1, postsPerPage: 10, isFormOpen: false, name: "", status:"",location:"" }
-    
-    
     triggeredFav = id => {
         this.setState(prevState => ({
             contacts: prevState.contacts.map((each) => {
@@ -104,8 +104,9 @@ class Home extends Component {
     render() {
         const { contacts, searchValue, currentPage, postsPerPage,isFormOpen } = this.state
         const searchedContacts = contacts.filter((each) => each.name.toLowerCase().includes(searchValue.toLowerCase()))
-        console.log(searchedContacts);
         const FavData = contacts.filter(e => (e.isFavoriate === true))
+        const FavLength = FavData.length
+        const ContactLength = contacts.length
         const lastPostIndex = currentPage * postsPerPage
         const firstPostIndex = lastPostIndex - postsPerPage
         const currentPosts = searchedContacts.slice(firstPostIndex, lastPostIndex)
@@ -130,13 +131,13 @@ class Home extends Component {
                 {isFormOpen && this.getForm()}
                 <main className="content">
                     <div className="favoriates-container">
-                        <h1 className="favoriate-text"> Favoriates  </h1>
+                        <h1 className="favoriate-text"> Favoriates - { FavLength }  </h1>
                         <ul className="favoriates-cards-container">
                             {FavData.map((e) =>  <FavoriateItem key={e.id} data={e} />)}
                         </ul>
                     </div>
                     <div className="contacts-container">
-                        <h1 className="contacts-text"> Contacts Lists </h1>
+                        <h1 className="contacts-text"> Contacts Lists - { ContactLength } </h1>
                         <div className="contact-info-container">
                             <p className="contact-info-text"> Name </p>
                             <p className="contact-info-text"> Status </p>
@@ -157,4 +158,6 @@ class Home extends Component {
     }
 }
 
-export default Home
+
+  
+  export default Home;

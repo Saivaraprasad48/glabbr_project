@@ -8,7 +8,6 @@ const Pagination = (props) => {
     for (let i = 1; i <= Math.ceil(count / postPerPage); i++){
         buttons.push(i)
     }
-    console.log(page);
   
     useEffect(() => {
         setGo(page)

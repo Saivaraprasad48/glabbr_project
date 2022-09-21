@@ -3,24 +3,26 @@ import { BiMessage } from "react-icons/bi"
 import { FiPhoneCall } from "react-icons/fi"
 import { AiOutlineStar } from "react-icons/ai"
 import { AiOutlineDelete } from "react-icons/ai"
-import {BsFillStarFill } from "react-icons/bs"
-
+import { BsFillStarFill } from "react-icons/bs"
 
 const bgColors = ["cornflowerblue","darkblue","darksalmon","dodgerblue","gold","grey","mediumpurple","olive"]
 const randomIndex = Math.ceil(Math.random() * bgColors.length)
 const initialColor = bgColors[randomIndex]
 
-const ContactItem = props => {
+const ContactItem = (props) => {
     const { data, triggerFav, triggerDel} = props 
     const { id, name, status, location, isFavoriate } = data
     const initial = name[0].toUpperCase()
     const FavIcon = isFavoriate ? <BsFillStarFill color="yellow" size={ "25px" }/> : <AiOutlineStar size={ "25px" } />
     
+
     const FavClicked = () => {
         triggerFav(id)
+     
     }
     const DelClicked = () => {
         triggerDel(id)
+       
     }
 
     return (
@@ -49,4 +51,5 @@ const ContactItem = props => {
     )
 }
 
-export default ContactItem
+
+  export default ContactItem;
