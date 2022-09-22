@@ -1,10 +1,13 @@
 import './App.css';
 import Home from "./components/Home/index"
+import { useSelector } from 'react-redux';
 
 const App = () => {
+  const state = useSelector((state) => state)
   return (
     <div className="App">
-      <Home  />
+      <Home data={state} />
+  
     </div>
   );
 }
@@ -12,4 +15,4 @@ const App = () => {
 
 
 
-export default App;
+export default  App;

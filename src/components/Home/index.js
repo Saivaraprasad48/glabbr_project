@@ -8,10 +8,10 @@ import FavoriateItem from "../FavoriateItem/index"
 import Pagination from "../Pagination"
 import { v4 } from "uuid"
 
-
-
 class Home extends Component {
     state = { contacts: data, errorMsg:false, searchValue: "", currentPage: 1, postsPerPage: 10, isFormOpen: false, name: "", status:"",location:"" }
+    
+    
     triggeredFav = id => {
         this.setState(prevState => ({
             contacts: prevState.contacts.map((each) => {
@@ -102,7 +102,7 @@ class Home extends Component {
     }
 
     render() {
-        const { contacts, searchValue, currentPage, postsPerPage,isFormOpen } = this.state
+        const {contacts,  searchValue, currentPage, postsPerPage,isFormOpen } = this.state
         const searchedContacts = contacts.filter((each) => each.name.toLowerCase().includes(searchValue.toLowerCase()))
         const FavData = contacts.filter(e => (e.isFavoriate === true))
         const FavLength = FavData.length
@@ -159,5 +159,4 @@ class Home extends Component {
 }
 
 
-  
   export default Home;
